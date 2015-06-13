@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+// must be applied after your artifact generating plugin (eg. java /
+// com.android.library)
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '23.0.0 rc2'
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 19
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:support-v4:22.2.0'
+    compile 'com.android.support:recyclerview-v7:22.1.1'
+    compile 'com.android.support:appcompat-v7:22.2.0'
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright (c) 2015 Jonas Kalderstam
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:listPreferredItemHeightSmall"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minHeight="?android:listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:background="@drawable/selectable_background_filepickertheme">
+
+
+    <!--suppress AndroidDomInspection -->
+    <ImageView
+        android:id="@+id/item_icon"
+        android:src="@drawable/ic_file_folder"
+        android:visibility="visible"
+        android:layout_width="?android:listPreferredItemHeightSmall"
+        android:layout_height="?android:listPreferredItemHeightSmall"
+        android:scaleType="fitCenter"
+        tools:ignore="ContentDescription"
+        android:tint="?attr/colorAccent"
+        android:adjustViewBounds="true"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        style="?android:textAppearanceSmall"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:id="@+id/filename"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/name"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/checkbox"
+        android:paddingEnd="8dp"
+        android:paddingRight="8dp"
+        tools:ignore="RtlSymmetry" />
+
+</LinearLayout>
