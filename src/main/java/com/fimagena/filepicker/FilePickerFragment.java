@@ -20,6 +20,9 @@ package com.fimagena.filepicker;
 
 import android.app.Activity;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
@@ -27,6 +30,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -135,6 +139,11 @@ public class FilePickerFragment extends Fragment implements NewFolderFragment.On
         inflater.inflate(R.menu.picker_actions, menu);
         MenuItem item = menu.findItem(R.id.action_createdir);
         item.setVisible(mParams.get(ALLOW_CREATE_DIR));
+
+        // FIXME: Ensure the icon is visible on the light background. This is a hack and should be done through the theme!
+        TypedValue value = new TypedValue ();
+        getActivity().getTheme().resolveAttribute(R.attr.colorAccent, value, true);
+        menu.findItem(R.id.action_createdir).getIcon().mutate().setColorFilter(value.data, PorterDuff.Mode.SRC_ATOP);
 
         for (int root = 0; root < mFileSystemRoots.length; root++)
             menu.add(Menu.NONE, root, Menu.NONE, "Switch to " + mFileSystemRoots[root].getName());
